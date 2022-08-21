@@ -3,40 +3,40 @@ package buem.lak.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class RentLog {
+public class PaymentDetails {
     private String id;
     private String name;
     private String description;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-    private Client client;
-    private PaymentDetails paymentDetails;
-    private Rent rent;
-    private TradingPoint tradingPoint;
+    private String iban;
+    private String cardNumber;
+    private String securityCode;
+    private String expirationDate;
 
-    public RentLog() {
+    public PaymentDetails() {
     }
 
-    public RentLog(String name, String description, Client client, PaymentDetails paymentDetails, Rent rent, TradingPoint tradingPoint) {
+    public PaymentDetails(String name, String description, String iban, String cardNumber, String securityCode, String expirationDate) {
         this.name = name;
         this.description = description;
-        this.client = client;
-        this.paymentDetails = paymentDetails;
-        this.rent = rent;
-        this.tradingPoint = tradingPoint;
+        this.iban = iban;
+        this.cardNumber = cardNumber;
+        this.securityCode = securityCode;
+        this.expirationDate = expirationDate;
     }
 
-    public RentLog(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, Client client, PaymentDetails paymentDetails, Rent rent, TradingPoint tradingPoint) {
+    public PaymentDetails(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String iban, String cardNumber, String securityCode, String expirationDate) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.createAt = createAt;
         this.updateAt = updateAt;
-        this.client = client;
-        this.paymentDetails = paymentDetails;
-        this.rent = rent;
-        this.tradingPoint = tradingPoint;
+        this.iban = iban;
+        this.cardNumber = cardNumber;
+        this.securityCode = securityCode;
+        this.expirationDate = expirationDate;
     }
 
     public String getId() {
@@ -79,44 +79,44 @@ public class RentLog {
         this.updateAt = updateAt;
     }
 
-    public Client getClient() {
-        return client;
+    public String getIban() {
+        return iban;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 
-    public PaymentDetails getPaymentDetails() {
-        return paymentDetails;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setPaymentDetails(PaymentDetails paymentDetails) {
-        this.paymentDetails = paymentDetails;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
-    public Rent getRent() {
-        return rent;
+    public String getSecurityCode() {
+        return securityCode;
     }
 
-    public void setRent(Rent rent) {
-        this.rent = rent;
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
     }
 
-    public TradingPoint getTradingPoint() {
-        return tradingPoint;
+    public String getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setTradingPoint(TradingPoint tradingPoint) {
-        this.tradingPoint = tradingPoint;
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RentLog rentLog = (RentLog) o;
-        return getId().equals(rentLog.getId());
+        PaymentDetails that = (PaymentDetails) o;
+        return getId().equals(that.getId());
     }
 
     @Override
@@ -126,16 +126,16 @@ public class RentLog {
 
     @Override
     public String toString() {
-        return "RentLog{" +
+        return "PaymentDetails{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", createAt=" + createAt +
                 ", updateAt=" + updateAt +
-                ", client=" + client +
-                ", paymentDetails=" + paymentDetails +
-                ", rent=" + rent +
-                ", tradingPoint=" + tradingPoint +
+                ", iban='" + iban + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", securityCode='" + securityCode + '\'' +
+                ", expirationDate='" + expirationDate + '\'' +
                 '}';
     }
 }

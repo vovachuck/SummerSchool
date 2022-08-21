@@ -1,4 +1,4 @@
-package buem.lakusta.summerschool;
+package buem.lak;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

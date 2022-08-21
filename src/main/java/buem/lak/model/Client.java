@@ -1,28 +1,39 @@
-package buem.lakusta.summerschool.model;
+package buem.lak.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Item {
+public class Client {
     private String id;
     private String name;
     private String description;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-    public Item() {
+    private String address;
+    private String phone;
+    private String contactPerson;
+
+    public Client() {
     }
 
-    public Item(String name, String description) {
+    public Client(String name, String description, String address, String phone, String contactPerson) {
         this.name = name;
         this.description = description;
+        this.address = address;
+        this.phone = phone;
+        this.contactPerson = contactPerson;
     }
 
-    public Item(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Client(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String address, String phone, String contactPerson) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.createAt = createAt;
         this.updateAt = updateAt;
+        this.address = address;
+        this.phone = phone;
+        this.contactPerson = contactPerson;
     }
 
     public String getId() {
@@ -65,12 +76,36 @@ public class Item {
         this.updateAt = updateAt;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return getId().equals(item.getId());
+        Client client = (Client) o;
+        return getId().equals(client.getId());
     }
 
     @Override
@@ -80,12 +115,15 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Client{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", createAt=" + createAt +
                 ", updateAt=" + updateAt +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
                 '}';
     }
 }

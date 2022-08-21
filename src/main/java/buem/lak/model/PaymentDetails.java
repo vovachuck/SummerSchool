@@ -13,12 +13,12 @@ public class PaymentDetails {
     private String iban;
     private String cardNumber;
     private String securityCode;
-    private String expirationDate;
+    private LocalDateTime expirationDate;
 
     public PaymentDetails() {
     }
 
-    public PaymentDetails(String name, String description, String iban, String cardNumber, String securityCode, String expirationDate) {
+    public PaymentDetails(String name, String description, String iban, String cardNumber, String securityCode, LocalDateTime expirationDate) {
         this.name = name;
         this.description = description;
         this.iban = iban;
@@ -27,7 +27,7 @@ public class PaymentDetails {
         this.expirationDate = expirationDate;
     }
 
-    public PaymentDetails(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String iban, String cardNumber, String securityCode, String expirationDate) {
+    public PaymentDetails(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String iban, String cardNumber, String securityCode, LocalDateTime expirationDate) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -103,11 +103,11 @@ public class PaymentDetails {
         this.securityCode = securityCode;
     }
 
-    public String getExpirationDate() {
+    public LocalDateTime getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(String expirationDate) {
+    public void setExpirationDate(LocalDateTime expirationDate) {
         this.expirationDate = expirationDate;
     }
 

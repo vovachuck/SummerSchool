@@ -18,7 +18,6 @@ public class TradingPointUIController {
     @GetMapping("")
     public String showAll(Model model){
         model.addAttribute("tradingPoints",service.getAll());
-        System.out.println(service.getAll());
         return "tradingPoints";
     }
 

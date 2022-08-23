@@ -1,13 +1,11 @@
 package buem.lak.service.impls;
 
 import buem.lak.model.Client;
-import buem.lak.repository.ClientFakeRepository;
-import buem.lak.repository.ClientMongoRepository;
+import buem.lak.repository.IClientMongoRepository;
 import buem.lak.service.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +22,7 @@ public class ClientServiceImpl implements IClientService {
                     new Client(UUID.randomUUID().toString(), "Yevhen Darovykh", "Quiet person", now, now, "Hlinichka 1", "+38099456734", "Volodymyr Lakusta")
             ));
     @Autowired
-    ClientMongoRepository repository;
+    IClientMongoRepository repository;
 
 //    @PostConstruct
 //    void init(){

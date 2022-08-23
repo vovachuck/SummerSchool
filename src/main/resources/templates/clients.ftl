@@ -40,13 +40,11 @@
                     <td>${client.address}</td>
                     <td>${client.phone}</td>
                     <td>${client.contactPerson}</td>
-                    <td><a href="/ui/v1/clients/del/${item.id}"><button type="button" class="btn btn-danger">Del</button></a></td>
-                    <td><a href="/ui/v1/clients/edit/${item.id}"><button type="button" class="btn btn-info">Edit</button></a></td>
+                    <td><a href="/ui/v1/clients/del/${client.id}"><button type="button" class="btn btn-danger">Del</button></a></td>
+                    <td><a href="/ui/v1/clients/edit/${client.id}"><button type="button" class="btn btn-info">Edit</button></a></td>
                 </tr>
             </#list>
             </tbody>
-
-
         </table>
     </div>
 </div>

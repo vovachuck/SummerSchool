@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface ClientMongoRepository extends MongoRepository<Client, String> {
+public interface IClientMongoRepository extends MongoRepository<Client, String> {
     List<Client> findAllByCreatedAtAfterAndName(LocalDateTime date, String name);
 }

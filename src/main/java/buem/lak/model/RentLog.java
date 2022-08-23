@@ -1,14 +1,19 @@
 package buem.lak.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Document
 public class RentLog {
+    @Id
     private String id;
     private String name;
     private String description;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     private Client client;
     private PaymentDetails paymentDetails;
@@ -27,12 +32,12 @@ public class RentLog {
         this.tradingPoint = tradingPoint;
     }
 
-    public RentLog(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, Client client, PaymentDetails paymentDetails, Rent rent, TradingPoint tradingPoint) {
+    public RentLog(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt, Client client, PaymentDetails paymentDetails, Rent rent, TradingPoint tradingPoint) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.client = client;
         this.paymentDetails = paymentDetails;
         this.rent = rent;
@@ -63,20 +68,20 @@ public class RentLog {
         this.description = description;
     }
 
-    public LocalDateTime getCreateAt() {
-        return createAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Client getClient() {
@@ -130,8 +135,8 @@ public class RentLog {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                ", createAt=" + createdAt +
+                ", updateAt=" + updatedAt +
                 ", client=" + client +
                 ", paymentDetails=" + paymentDetails +
                 ", rent=" + rent +

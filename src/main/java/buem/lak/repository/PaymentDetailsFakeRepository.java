@@ -1,12 +1,10 @@
 package buem.lak.repository;
 
-import buem.lak.model.Client;
 import buem.lak.model.PaymentDetails;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.*;
 
 @Repository
@@ -26,8 +24,8 @@ public class PaymentDetailsFakeRepository {
 
     public PaymentDetails save(PaymentDetails paymentDetails) {
         paymentDetails.setId(UUID.randomUUID().toString());
-        paymentDetails.setCreateAt(now);
-        paymentDetails.setUpdateAt(now);
+        paymentDetails.setCreatedAt(now);
+        paymentDetails.setUpdatedAt(now);
         this.paymentDetailsList.add(paymentDetails);
         return paymentDetails;
     }
@@ -39,7 +37,7 @@ public class PaymentDetailsFakeRepository {
 
     public PaymentDetails update(PaymentDetails paymentDetails) {
         this.deleteById(paymentDetails.getId());
-        paymentDetails.setUpdateAt(LocalDateTime.now());
+        paymentDetails.setUpdatedAt(LocalDateTime.now());
         this.paymentDetailsList.add(paymentDetails);
         return paymentDetails;
     }

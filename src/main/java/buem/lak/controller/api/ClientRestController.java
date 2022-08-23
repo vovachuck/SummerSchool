@@ -1,17 +1,15 @@
 package buem.lak.controller.api;
 
 import buem.lak.model.Client;
-import buem.lak.repository.ClientFakeRepository;
 import buem.lak.service.impls.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RequestMapping("/api/v1/clients/")
 @RestController
-public class ClientRestContoller {
+public class ClientRestController {
     @Autowired
     private ClientServiceImpl service;
 

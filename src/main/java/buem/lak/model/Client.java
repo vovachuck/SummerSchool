@@ -1,14 +1,19 @@
 package buem.lak.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Document
 public class Client {
+    @Id
     private String id;
     private String name;
     private String description;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     private String address;
     private String phone;
@@ -25,12 +30,12 @@ public class Client {
         this.contactPerson = contactPerson;
     }
 
-    public Client(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String address, String phone, String contactPerson) {
+    public Client(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt, String address, String phone, String contactPerson) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.address = address;
         this.phone = phone;
         this.contactPerson = contactPerson;
@@ -60,20 +65,20 @@ public class Client {
         this.description = description;
     }
 
-    public LocalDateTime getCreateAt() {
-        return createAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getAddress() {
@@ -119,8 +124,8 @@ public class Client {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                ", createAt=" + createdAt +
+                ", updateAt=" + updatedAt +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +

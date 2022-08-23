@@ -1,14 +1,19 @@
 package buem.lak.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Document
 public class PaymentDetails {
+    @Id
     private String id;
     private String name;
     private String description;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     private String iban;
     private String cardNumber;
@@ -27,12 +32,12 @@ public class PaymentDetails {
         this.expirationDate = expirationDate;
     }
 
-    public PaymentDetails(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, String iban, String cardNumber, String securityCode, LocalDateTime expirationDate) {
+    public PaymentDetails(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt, String iban, String cardNumber, String securityCode, LocalDateTime expirationDate) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.iban = iban;
         this.cardNumber = cardNumber;
         this.securityCode = securityCode;
@@ -63,20 +68,20 @@ public class PaymentDetails {
         this.description = description;
     }
 
-    public LocalDateTime getCreateAt() {
-        return createAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getIban() {
@@ -130,8 +135,8 @@ public class PaymentDetails {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                ", createAt=" + createdAt +
+                ", updateAt=" + updatedAt +
                 ", iban='" + iban + '\'' +
                 ", cardNumber='" + cardNumber + '\'' +
                 ", securityCode='" + securityCode + '\'' +

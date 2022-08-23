@@ -25,8 +25,8 @@ public class ClientFakeRepository {
 
     public Client save(Client client){
         client.setId(UUID.randomUUID().toString());
-        client.setCreateAt(now);
-        client.setUpdateAt(now);
+        client.setCreatedAt(now);
+        client.setUpdatedAt(now);
         this.clients.add(client);
         return client;
     }
@@ -38,7 +38,7 @@ public class ClientFakeRepository {
 
     public Client update(Client client) {
         this.deleteById(client.getId());
-        client.setUpdateAt(LocalDateTime.now());
+        client.setUpdatedAt(LocalDateTime.now());
         this.clients.add(client);
         return  client;
     }

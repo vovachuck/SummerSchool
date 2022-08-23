@@ -1,14 +1,19 @@
 package buem.lak.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Document
 public class Payment {
+    @Id
     private String id;
     private String name;
     private String description;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     private int amount;
 
@@ -21,12 +26,12 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Payment(String id, String name, String description, LocalDateTime createAt, LocalDateTime updateAt, int amount) {
+    public Payment(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt, int amount) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.amount = amount;
     }
 
@@ -54,20 +59,20 @@ public class Payment {
         this.description = description;
     }
 
-    public LocalDateTime getCreateAt() {
-        return createAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public int getAmount() {
@@ -97,8 +102,8 @@ public class Payment {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                ", createAt=" + createdAt +
+                ", updateAt=" + updatedAt +
                 ", amount=" + amount +
                 '}';
     }

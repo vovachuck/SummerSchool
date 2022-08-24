@@ -1,12 +1,4 @@
 <style type="text/css">
-.title{
-    outline: 2px dashed black;
-    padding: 10px;
-    text-align: center;
-}
-.title h1{
-    font-size: 3em;
-}
 .custom{
     margin: 10px;
 }
@@ -15,8 +7,50 @@
 }
 .table{
     font-size: 20px;
+    text-align: center;
 }
-.table-center{
-
+th{
+    color: #464a7a;
+}
+td{
+    vertical-align: middle;
+    color: #464a7a;
+}
+.table a ion-icon{
+    font-size: 25px;
+}
+.addNew{
+    /*display: inline;*/
+    /*background: #309df0;*/
+    position: relative;
+}
+.addNew h1{
+left: 10%;
+}
+.addNew button{
+    /*position: absolute;*/
+    float: right;
+    border-radius: 30px;
+}
+.customButton{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #39cedb !important;
+    o
+}
+.customButton h5{
+    margin-top: 10px;
+    color: white;
+}
+.content{
+    margin-left: 10em;
+    margin-right: 10em;
+    padding: 2em;
+    background: white;
+    border-radius: 25px;
+}
+.mainBody{
+    background: #f0f0f0;
 }
 </style>

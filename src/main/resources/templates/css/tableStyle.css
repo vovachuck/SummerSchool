@@ -1,0 +1,22 @@
+<style type="text/css">
+.title{
+    outline: 2px dashed black;
+    padding: 10px;
+    text-align: center;
+}
+.title h1{
+    font-size: 3em;
+}
+.custom{
+    margin: 10px;
+}
+.custom ion-icon{
+    font-size: 40px;
+}
+.table{
+    font-size: 20px;
+}
+.table-center{
+
+}
+</style>

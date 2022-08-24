@@ -9,14 +9,17 @@
             place-content: center;
         }
     </style>
+    <#include "css/tableStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
-
-<h1>Hello, Clients! </h1>
+<button type="button" class="btn custom" onclick="location.href='http://localhost:8080/mainPage.html'"><ion-icon name="return-up-back-outline"></ion-icon></button>
+<div class="title">
+    <h1>Clients</h1>
+</div>
 <div class="table-center">
-    <div class="table-center" style="width: 80%; display: flex; align-content: center">
-        <table class="table table-dark table-striped">
+    <div class="table-center" style="width: 90%; display: flex; align-content: center">
+        <table class="table table-hover border border-dark mt-5 table-bordered">
             <thead>
             <th> ID </th>
             <th> Name</th>
@@ -26,8 +29,8 @@
             <th> Address</th>
             <th> Phone</th>
             <th> Contact Person</th>
-            <th> DELETE</th>
             <th> EDIT</th>
+            <th> DELETE</th>
             </thead>
             <tbody
             <#list clients as client >
@@ -40,8 +43,8 @@
                     <td>${client.address}</td>
                     <td>${client.phone}</td>
                     <td>${client.contactPerson}</td>
-                    <td><a href="/ui/v1/clients/del/${client.id}"><button type="button" class="btn btn-danger">Del</button></a></td>
-                    <td><a href="/ui/v1/clients/edit/${client.id}"><button type="button" class="btn btn-info">Edit</button></a></td>
+                    <td><a href="/ui/v1/clients/edit/${client.id}"><button type="button" class="btn btn-info"><ion-icon name="create-outline"></ion-icon></button></a></td>
+                    <td><a href="/ui/v1/clients/del/${client.id}"><button type="button" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></button></a></td>
                 </tr>
             </#list>
             </tbody>
@@ -50,5 +53,8 @@
 </div>
 
 <a href="/ui/v1/clients/add">CREATE</a>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

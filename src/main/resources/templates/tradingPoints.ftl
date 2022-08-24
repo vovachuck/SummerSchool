@@ -25,7 +25,7 @@
             <th> Updated At</th>
             <th> Floor</th>
             <th> Square</th>
-            <th> Price Per Day</th>
+            <th> Price per Day</th>
             <th> Is Conditioner</th>
             <th> Is Available</th>
             </thead>

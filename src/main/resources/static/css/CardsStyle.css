@@ -1,5 +1,5 @@
 .customContainer{
-    margin: 8%;
+    margin: 6%;
 }
 
 ion-icon {
@@ -21,6 +21,7 @@ ion-icon {
     justify-content: center;
 }
 .solution_cards_box .solution_card {
+    width: 500px;
     background: #fff;
     box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
     0 5px 15px 0 rgba(37, 44, 97, 0.15);
@@ -36,7 +37,7 @@ ion-icon {
 
 .solution_cards_box .solution_card:hover {
     background: #309df0;
-    color: #fff;
+    color: #919191;
     transform: scale(1.1);
     z-index: 9;
 }
@@ -73,14 +74,13 @@ ion-icon {
 
 .solution_card .solu_title h3 {
     color: #212121;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-top: 13px;
     margin-bottom: 13px;
 }
 
 .solution_card .solu_description p {
-    font-size: 15px;
-    margin-bottom: 15px;
+    font-size: 18px;
 }
 
 .solution_card .solu_description button {

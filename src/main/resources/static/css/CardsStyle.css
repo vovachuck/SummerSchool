@@ -1,3 +1,11 @@
+.customContainer{
+    margin: 8%;
+}
+
+ion-icon {
+    font-size: 50px;
+}
+
 .section_our_solution .row {
     align-items: center;
 }
@@ -9,7 +17,7 @@
 }
 .our_solution_category .solution_cards_box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 .solution_cards_box .solution_card {
@@ -17,7 +25,7 @@
     box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
     0 5px 15px 0 rgba(37, 44, 97, 0.15);
     border-radius: 15px;
-    margin: 8px;
+    margin: 25px;
     padding: 10px 15px;
     position: relative;
     z-index: 1;
@@ -152,13 +160,11 @@
 }
 @media only screen and (min-width: 768px) {
     .our_solution_category .solution_cards_box {
-        flex: 1;
     }
 }
 @media only screen and (min-width: 1024px) {
     .sol_card_top_3 {
         position: relative;
-        top: -3rem;
     }
     .our_solution_category {
         /*width: 50%;*/

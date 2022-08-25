@@ -37,11 +37,10 @@ public class ClientUIController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addItem(@ModelAttribute("form") Client clientForm){
-        Client client = new Client();
-        client.setName(clientForm.getName());
-        client.setDescription(clientForm.getDescription());
-        service.create(client);
-        return "redirect:/ui/v1/clients/";
+        clientForm.setCreatedAt(LocalDateTime.now());
+        clientForm.setUpdatedAt(LocalDateTime.now());
+        service.create(clientForm);
+        return "success";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)

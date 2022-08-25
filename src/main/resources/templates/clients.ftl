@@ -18,7 +18,7 @@
 <div class="content">
     <div class="addNew">
         <h1>Clients</h1>
-        <button class="btn customButton btn-outline-dark" id="myBtn" onclick=""><h5>+ Add New</h5></button>
+        <button class="btn customButton btn-outline-dark" id="myBtnAdd" onclick="onClickAdd()"><h5>+ Add New</h5></button>
     </div>
 
     <div class="customTable">
@@ -38,16 +38,16 @@
                 </thead>
                 <tbody
                 <#list clients as client >
-                    <tr>
-                        <td>${client.id}</td>
-                        <td>${client.name}</td>
-                        <td>${client.description}</td>
-                        <td>${client.createdAt}</td>
-                        <td>${client.updatedAt?if_exists}</td>
-                        <td>${client.address}</td>
-                        <td>${client.phone}</td>
-                        <td>${client.contactPerson}</td>
-                        <td><a href="/ui/v1/clients/edit/${client.id}"><button type="button" class="btn"><ion-icon name="create" style="color: sandybrown;"></ion-icon></button></a></td>
+                    <tr id="values">
+                        <td class="${client.id}" id="id">${client.id}</td>
+                        <td class="${client.id}" id="name">${client.name}</td>
+                        <td class="${client.id}" id="description">${client.description}</td>
+                        <td class="${client.id}" id="createdAt">${client.createdAt}</td>
+                        <td class="${client.id}" id="updatedAt">${client.updatedAt?if_exists}</td>
+                        <td class="${client.id}" id="address">${client.address}</td>
+                        <td class="${client.id}" id="phone">${client.phone}</td>
+                        <td class="${client.id}" id="contactPerson">${client.contactPerson}</td>
+                        <td><a><button type="button" class="btn update" onclick=onClickUpdate("${client.id}")><ion-icon name="create" style="color: sandybrown;"></ion-icon></button></a></td>
                         <td><a href="/ui/v1/clients/del/${client.id}"><button type="button" class="btn"><ion-icon name="trash" style="color: orangered;"></ion-icon></button></a></td>
                     </tr>
                 </#list>
@@ -58,10 +58,9 @@
 </div>
 
 <!-- The Modal -->
-<div id="myModal" class="customModal">
+<div id="myModalAdd" class="customModal">
     <!-- Modal content -->
     <div class="customModal-content">
-        <span class="close">&times;</span>
         <fieldset>
             <form action="/ui/v1/clients/add" method="post">
                 <div class="modal-body">
@@ -80,30 +79,64 @@
     </div>
 </div>
 
+<!-- The Modal -->
+<div id="myModalUpdate" class="customModal">
+    <!-- Modal content -->
+    <div class="customModal-content">
+        <fieldset>
+            <form action="/ui/v1/clients/edit/" method="post" id="updateForm">
+                <div class="modal-body" id="updateModal">
+                    <p>Name: <input type="text" name="name" value="" class="form-control update" id="nameUpdate"/></p>
+                    <p>Description: <input type="text" name="description" value="" class="form-control update"/></p>
+                    <p>Address: <input type="text" name="address" value="" class="form-control update"/></p>
+                    <p>Phone: <input type="text" name="phone" value="" class="form-control update"/></p>
+                    <p>Contact Person: <input type="text" name="contactPerson" value="" class="form-control update"/></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Submit" class="btn btn-outline-success btn-lg"/>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
 <script>
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal1 = document.getElementById("myModalAdd");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
+    function onClickAdd(){
+        modal1.style.display = "block";
     }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModalUpdate");
+
+    var items = document.getElementsByClassName("form-control update");
+
+    function onClickUpdate(idName){
+        modal.style.display = "block";
+
+        var updateForm = document.getElementById("updateForm")
+        updateForm.action = updateForm.action + idName
+
+        var ids = document.getElementsByClassName(idName)
+        for (const item of items) {
+            for (const id of ids){
+                if(id.id == item.name){
+                    item.value = id.textContent;
+                }
+            }
+        }
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
         }
     }
 </script>

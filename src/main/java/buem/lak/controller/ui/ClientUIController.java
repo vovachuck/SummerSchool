@@ -52,21 +52,28 @@ public class ClientUIController {
         clientForm.setDescription(clientToUpdate.getDescription());
         clientForm.setUpdatedAt(clientToUpdate.getUpdatedAt());
         clientForm.setCreatedAt(clientToUpdate.getCreatedAt());
+        clientForm.setAddress(clientToUpdate.getAddress());
+        clientForm.setPhone(clientToUpdate.getPhone());
+        clientForm.setContactPerson(clientToUpdate.getContactPerson());
         model.addAttribute("form", clientForm);
         return "updateClient";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateItem( @ModelAttribute("form") Client clientForm){
-        Client clientUpdate = new Client();
-        clientUpdate.setId(clientForm.getId());
-        clientUpdate.setName(clientForm.getName());
-        clientUpdate.setDescription(clientForm.getDescription());
-        clientUpdate.setCreatedAt(LocalDateTime.now());
-        clientUpdate.setUpdatedAt(LocalDateTime.now());
+        Client itemForm = service.get(clientForm.getId());
+        Client itemtoUpdate = new Client();
+        itemtoUpdate.setId(clientForm.getId());
+        itemtoUpdate.setName(clientForm.getName());
+        itemtoUpdate.setDescription(clientForm.getDescription());
+        itemtoUpdate.setCreatedAt(itemForm.getCreatedAt());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
 
-        service.update(clientUpdate);
+        itemtoUpdate.setAddress(clientForm.getAddress());
+        itemtoUpdate.setPhone(clientForm.getPhone());
+        itemtoUpdate.setContactPerson(clientForm.getContactPerson());
 
+        service.update(itemtoUpdate);
         return "redirect:/ui/v1/clients/";
     }
 }

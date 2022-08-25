@@ -56,17 +56,66 @@ left: 10%;
 #updatePopUp{
 
 }
-.modal {
+
+.customModal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0,0.4);
-    background-color: rgba(0,0,0,0.4); /* <-- this is the culprit */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.5);
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
+
+.customModal span{
+    margin-top: -20px;
+}
+
+.form-control{
+    border-radius: 30px !important;
+    margin-top: 10px;
+    font-size: 1.5rem !important;
+}
+
+.customModal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    border-radius: 25px;
+    padding: 50px;
+}
+
+.customModal-content p{
+    font-size: 30px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-footer{
+    justify-content: center !important;
+}
+
+.modal-footer input{
+    margin: 10px;
+}
+
 </style>

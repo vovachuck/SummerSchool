@@ -40,7 +40,7 @@ public class ClientUIController {
         clientForm.setCreatedAt(LocalDateTime.now());
         clientForm.setUpdatedAt(LocalDateTime.now());
         service.create(clientForm);
-        return "success";
+        return "redirect:/ui/v1/clients/";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)

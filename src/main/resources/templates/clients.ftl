@@ -11,8 +11,6 @@
         }
     </style>
     <#include "css/tableStyle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body class="mainBody">
@@ -20,7 +18,7 @@
 <div class="content">
     <div class="addNew">
         <h1>Clients</h1>
-        <button class="btn customButton btn-outline-dark" onclick=""><h5>+ Add New</h5></button>
+        <button class="btn customButton btn-outline-dark" id="myBtn" onclick=""><h5>+ Add New</h5></button>
     </div>
 
     <div class="customTable">
@@ -58,50 +56,57 @@
         </div>
     </div>
 </div>
-<div id="updatePopUp" class="modal fade">
-    <fieldset>
-        <form action="/ui/v1/clients/add" method="post">
-            <div class="modal-body">
-                <p>Name: <input type="text" name="name" class="form-control"/></p>
-                <p>Description: <input type="text" name="description" class="form-control"/></p>
-                <p>Address: <input type="text" name="address" class="form-control"/></p>
-                <p>Phone: <input type="text" name="phone" class="form-control"/></p>
-                <p>Contact Person: <input type="text" name="contactPerson" class="form-control"/></p>
-            </div>
-            <div class="modal-footer">
-                <input type="submit" value="Submit" class="btn btn-primary"/>
-                <input type="reset" class="btn btn-secondary" value="Reset" />
-            </div>
-        </form>
-    </fieldset>
-</div>
 
-<div class="container">
-    <h2>Modal Example</h2>
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-    <div class="modal" tabindex="-1" role="dialog" id="myModal">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+<!-- The Modal -->
+<div id="myModal" class="customModal">
+    <!-- Modal content -->
+    <div class="customModal-content">
+        <span class="close">&times;</span>
+        <fieldset>
+            <form action="/ui/v1/clients/add" method="post">
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <p>Name: <input type="text" name="name" class="form-control"/></p>
+                    <p>Description: <input type="text" name="description" class="form-control"/></p>
+                    <p>Address: <input type="text" name="address" class="form-control"/></p>
+                    <p>Phone: <input type="text" name="phone" class="form-control"/></p>
+                    <p>Contact Person: <input type="text" name="contactPerson" class="form-control"/></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Submit" class="btn btn-outline-success btn-lg"/>
+                    <input type="reset" class="btn btn-outline-warning btn-lg" value="Clear" />
                 </div>
-            </div>
-        </div>
+            </form>
+        </fieldset>
     </div>
-
 </div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

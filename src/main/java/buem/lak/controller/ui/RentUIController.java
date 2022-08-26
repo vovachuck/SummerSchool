@@ -37,10 +37,9 @@ public class RentUIController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addItem(@ModelAttribute("form") Rent rentForm){
-        Rent rent = new Rent();
-        rent.setName(rentForm.getName());
-        rent.setDescription(rentForm.getDescription());
-        service.create(rent);
+        rentForm.setCreatedAt(LocalDateTime.now());
+        rentForm.setUpdatedAt(LocalDateTime.now());
+        service.create(rentForm);
         return "redirect:/ui/v1/rents/";
     }
 
@@ -59,14 +58,18 @@ public class RentUIController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateItem( @ModelAttribute("form") Rent rentForm){
-        Rent rentUpdate = new Rent();
-        rentUpdate.setId(rentForm.getId());
-        rentUpdate.setName(rentForm.getName());
-        rentUpdate.setDescription(rentForm.getDescription());
-        rentUpdate.setCreatedAt(LocalDateTime.now());
-        rentUpdate.setUpdatedAt(LocalDateTime.now());
+        Rent itemForm = service.get(rentForm.getId());
+        Rent itemtoUpdate = new Rent();
+        itemtoUpdate.setId(rentForm.getId());
+        itemtoUpdate.setName(rentForm.getName());
+        itemtoUpdate.setDescription(rentForm.getDescription());
+        itemtoUpdate.setCreatedAt(itemForm.getCreatedAt());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
 
-        service.update(rentUpdate);
+        itemtoUpdate.setStartDate(rentForm.getStartDate());
+        itemtoUpdate.setEndDate(rentForm.getEndDate());
+
+        service.update(itemtoUpdate);
 
         return "redirect:/ui/v1/rents/";
     }

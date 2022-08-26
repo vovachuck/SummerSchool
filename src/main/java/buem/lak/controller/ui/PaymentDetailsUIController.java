@@ -37,10 +37,9 @@ public class PaymentDetailsUIController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addItem(@ModelAttribute("form") PaymentDetails paymentDetailsForm){
-        PaymentDetails paymentDetails = new PaymentDetails();
-        paymentDetails.setName(paymentDetailsForm.getName());
-        paymentDetails.setDescription(paymentDetailsForm.getDescription());
-        service.create(paymentDetails);
+        paymentDetailsForm.setCreatedAt(LocalDateTime.now());
+        paymentDetailsForm.setUpdatedAt(LocalDateTime.now());
+        service.create(paymentDetailsForm);
         return "redirect:/ui/v1/paymentDetails/";
     }
 
@@ -59,14 +58,20 @@ public class PaymentDetailsUIController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateItem( @ModelAttribute("form") PaymentDetails paymentDetailsForm){
-        PaymentDetails paymentDetailsUpdate = new PaymentDetails();
-        paymentDetailsUpdate.setId(paymentDetailsForm.getId());
-        paymentDetailsUpdate.setName(paymentDetailsForm.getName());
-        paymentDetailsUpdate.setDescription(paymentDetailsForm.getDescription());
-        paymentDetailsUpdate.setCreatedAt(LocalDateTime.now());
-        paymentDetailsUpdate.setUpdatedAt(LocalDateTime.now());
+        PaymentDetails itemForm = service.get(paymentDetailsForm.getId());
+        PaymentDetails itemtoUpdate = new PaymentDetails();
+        itemtoUpdate.setId(paymentDetailsForm.getId());
+        itemtoUpdate.setName(paymentDetailsForm.getName());
+        itemtoUpdate.setDescription(paymentDetailsForm.getDescription());
+        itemtoUpdate.setCreatedAt(itemForm.getCreatedAt());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
 
-        service.update(paymentDetailsUpdate);
+        itemtoUpdate.setIban(paymentDetailsForm.getIban());
+        itemtoUpdate.setCardNumber(paymentDetailsForm.getCardNumber());
+        itemtoUpdate.setSecurityCode(paymentDetailsForm.getSecurityCode());
+        itemtoUpdate.setExpirationDate(paymentDetailsForm.getExpirationDate());
+
+        service.update(itemtoUpdate);
 
         return "redirect:/ui/v1/paymentDetails/";
     }

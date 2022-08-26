@@ -37,10 +37,9 @@ public class TradingPointUIController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addItem(@ModelAttribute("form") TradingPoint tradingPointForm){
-        TradingPoint tradingPoint = new TradingPoint();
-        tradingPoint.setName(tradingPointForm.getName());
-        tradingPoint.setDescription(tradingPointForm.getDescription());
-        service.create(tradingPoint);
+        tradingPointForm.setCreatedAt(LocalDateTime.now());
+        tradingPointForm.setUpdatedAt(LocalDateTime.now());
+        service.create(tradingPointForm);
         return "redirect:/ui/v1/tradingPoints/";
     }
 
@@ -59,15 +58,21 @@ public class TradingPointUIController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateItem( @ModelAttribute("form") TradingPoint tradingPointForm){
-        TradingPoint tradingPointUpdate = new TradingPoint();
-        tradingPointUpdate.setId(tradingPointForm.getId());
-        tradingPointUpdate.setName(tradingPointForm.getName());
-        tradingPointUpdate.setDescription(tradingPointForm.getDescription());
-        tradingPointUpdate.setCreatedAt(LocalDateTime.now());
-        tradingPointUpdate.setUpdatedAt(LocalDateTime.now());
+        TradingPoint itemForm = service.get(tradingPointForm.getId());
+        TradingPoint itemtoUpdate = new TradingPoint();
+        itemtoUpdate.setId(tradingPointForm.getId());
+        itemtoUpdate.setName(tradingPointForm.getName());
+        itemtoUpdate.setDescription(tradingPointForm.getDescription());
+        itemtoUpdate.setCreatedAt(itemForm.getCreatedAt());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
 
-        service.update(tradingPointUpdate);
+        itemtoUpdate.setFloor(tradingPointForm.getFloor());
+        itemtoUpdate.setSquare(tradingPointForm.getSquare());
+        itemtoUpdate.setPricePerDay(tradingPointForm.getPricePerDay());
+        itemtoUpdate.setConditioner(tradingPointForm.isConditioner());
+        itemtoUpdate.setAvailable(tradingPointForm.isAvailable());
 
+        service.update(itemtoUpdate);
         return "redirect:/ui/v1/tradingPoints/";
     }
 }

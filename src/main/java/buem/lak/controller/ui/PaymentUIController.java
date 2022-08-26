@@ -37,10 +37,9 @@ public class PaymentUIController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addItem(@ModelAttribute("form") Payment paymentForm){
-        Payment payment = new Payment();
-        payment.setName(paymentForm.getName());
-        payment.setDescription(paymentForm.getDescription());
-        service.create(payment);
+        paymentForm.setCreatedAt(LocalDateTime.now());
+        paymentForm.setUpdatedAt(LocalDateTime.now());
+        service.create(paymentForm);
         return "redirect:/ui/v1/payments/";
     }
 
@@ -59,14 +58,17 @@ public class PaymentUIController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateItem( @ModelAttribute("form") Payment paymentsForm){
-        Payment paymentsUpdate = new Payment();
-        paymentsUpdate.setId(paymentsForm.getId());
-        paymentsUpdate.setName(paymentsForm.getName());
-        paymentsUpdate.setDescription(paymentsForm.getDescription());
-        paymentsUpdate.setCreatedAt(LocalDateTime.now());
-        paymentsUpdate.setUpdatedAt(LocalDateTime.now());
+        Payment itemForm = service.get(paymentsForm.getId());
+        Payment itemtoUpdate = new Payment();
+        itemtoUpdate.setId(paymentsForm.getId());
+        itemtoUpdate.setName(paymentsForm.getName());
+        itemtoUpdate.setDescription(paymentsForm.getDescription());
+        itemtoUpdate.setCreatedAt(itemForm.getCreatedAt());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
 
-        service.update(paymentsUpdate);
+        itemtoUpdate.setAmount(paymentsForm.getAmount());
+
+        service.update(itemtoUpdate);
 
         return "redirect:/ui/v1/payments/";
     }

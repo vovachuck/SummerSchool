@@ -1,5 +1,78 @@
+.showMe {
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+
+.showHim:hover .showMe {
+    display: flex;
+}
+.showHim{
+    width: 60px;
+    z-index: 3;
+}
+
+.showMe1 {
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+
+.showHim1:hover .showMe1 {
+    display: flex;
+    justify-content: center;
+}
+.showHim1{
+    width: 60px;
+    z-index: 3;
+}
+.UML{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    z-index: 4;
+    outline: 2px solid black;
+}
+.textContent{
+    background-color: white;
+    border-radius: 25px;
+    padding: 50px;
+    z-index: 4;
+    outline: 2px solid black;
+}
+.textContent p{
+    font-size: 25px;
+}
+.tab1 {
+    margin-left: 1em;
+}
+.tab2 {
+    margin-left: 2em;
+}
+.showMeBackground{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: -50%;
+    left: -50%;
+    background-color: rgba(128, 128, 128, 0.22);
+    z-index: 1;
+}
+
 .customContainer{
-    margin: 6%;
+    margin: 3%;
 }
 
 ion-icon {
@@ -37,6 +110,13 @@ ion-icon {
 
 .solution_cards_box .solution_card:hover {
     background: #309df0;
+    color: #919191;
+    transform: scale(1.1);
+    z-index: 9;
+}
+
+.solution_cards_box .solution_card_yellow:hover {
+    background: #f0d030;
     color: #919191;
     transform: scale(1.1);
     z-index: 9;

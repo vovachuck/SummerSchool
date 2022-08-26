@@ -47,7 +47,7 @@
                     </div>
                     <!--  -->
                     <div class="solution_cards_box sol_card_top_3">
-                        <button class="solution_card" onclick="location.href='http://localhost:8080/ui/v1/paymentDetails/'">
+                        <button class="solution_card solution_card_yellow" onclick="location.href='http://localhost:8080/ui/v1/paymentDetails/'">
                             <div class="hover_color_bubble"></div>
                             <div class="so_top_icon">
                                 <ion-icon name="card-outline"></ion-icon>
@@ -61,7 +61,7 @@
                                 </p>
                             </div>
                         </button>
-                        <button class="solution_card" onclick="location.href='http://localhost:8080/ui/v1/rents/'">
+                        <button class="solution_card solution_card_yellow" onclick="location.href='http://localhost:8080/ui/v1/rents/'">
                             <div class="hover_color_bubble"></div>
                             <div class="so_top_icon">
                                 <ion-icon name="storefront-outline"></ion-icon>
@@ -75,7 +75,7 @@
                                 </p>
                             </div>
                         </button>
-                        <button class="solution_card" onclick="location.href='http://localhost:8080/ui/v1/tradingPoints/'">
+                        <button class="solution_card solution_card_yellow" onclick="location.href='http://localhost:8080/ui/v1/tradingPoints/'">
                             <div class="hover_color_bubble"></div>
                             <div class="so_top_icon">
                                 <ion-icon name="business-outline"></ion-icon>
@@ -97,5 +97,53 @@
 </div>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<div class="p-2">
+<!--    <a class="float-start showHim"><ion-icon name="information-circle-outline"></ion-icon></a>-->
+<!--    <a class="float-right showHim"><ion-icon name="terminal-outline"></ion-icon></a>-->
+    <div class="showHim">
+        <a class="float-start"><ion-icon name="information-circle-outline"></ion-icon></a>
+        <div class="showMe">
+            <div class="textContent">
+                <h2>Leasing of retail spaces</h2>
+                <br>
+                <p class="">
+                    You work in a large shopping center that rents out its space to merchants
+                    shopping areas.
+                </p>
+                <p class="">
+                    Your task is to bring order in the financial sphere of the shopping center.
+                </p>
+                <p class="">
+                    The work of the shopping center is structured as follows: as a result of planning you
+                    have identified a number of retail outlets within the building that can be leased. For each of the retail outlets, important data are the floor, area, availability of air conditioning and the daily rental price. You collect standard data from all potential customers (name, address, phone, details, contact person). With the appearance of a potential client, you show him the available free spaces. When you reach an agreement, you draw up the contract, recording the point of sale, the client, the rental period (term) in the database.
+                    A set of entities is possible:
+                </p>
+                <p class="tab2">
+                    Retail outlets (Retail outlet code, Floor, Area, Availability of air conditioning, Rental price per day).
+                </p>
+                <p class="tab2">
+                    Clients (Client code, Name, Details, Address, Telephone, Contact person).
+                </p>
+                <p class="tab2">
+                    Lease (Lease Code, Retail Point Code, Customer Code, Start Date, End Date).
+                </p>
+                <p>
+                    Extension of the statement of the task
+                    As a result of the operation of the database, it became clear that some customers rent several retail outlets at once. In addition, you need to collect information about the monthly payments coming from the tenants.
+                    Make changes to the structure of the tables that take these facts into account and modify the existing queries. Add new requests.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="showHim1">
+        <a class="float-start showHim1"><ion-icon name="terminal-outline"></ion-icon></a>
+        <div class="showMe1">
+            <img class="UML" src="UML.jpg">
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

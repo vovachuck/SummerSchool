@@ -111,7 +111,7 @@ public class TradingPoint {
         this.pricePerDay = pricePerDay;
     }
 
-    public boolean isConditioner() {
+    public boolean getIsConditioner() {
         return isConditioner;
     }
 
@@ -119,7 +119,7 @@ public class TradingPoint {
         isConditioner = conditioner;
     }
 
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 

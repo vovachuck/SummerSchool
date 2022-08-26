@@ -69,8 +69,8 @@ public class TradingPointUIController {
         itemtoUpdate.setFloor(tradingPointForm.getFloor());
         itemtoUpdate.setSquare(tradingPointForm.getSquare());
         itemtoUpdate.setPricePerDay(tradingPointForm.getPricePerDay());
-        itemtoUpdate.setConditioner(tradingPointForm.isConditioner());
-        itemtoUpdate.setAvailable(tradingPointForm.isAvailable());
+        itemtoUpdate.setConditioner(tradingPointForm.getIsConditioner());
+        itemtoUpdate.setAvailable(tradingPointForm.getIsAvailable());
 
         service.update(itemtoUpdate);
         return "redirect:/ui/v1/tradingPoints/";
